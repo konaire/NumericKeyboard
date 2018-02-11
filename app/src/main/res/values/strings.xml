@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Numeric Keyboard</string>
+    <string name="field_hint">Input some numbers</string>
 </resources>

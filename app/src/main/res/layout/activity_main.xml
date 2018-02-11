@@ -2,11 +2,17 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_gap">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/field"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Hello World!" />
+        android:maxLength="10"
+        android:inputType="number"
+        android:imeOptions="actionDone"
+        android:hint="@string/field_hint"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/default_text_size" />
 </RelativeLayout>
