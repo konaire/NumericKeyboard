@@ -15,4 +15,10 @@
         android:hint="@string/field_hint"
         android:textColor="@android:color/black"
         android:textSize="@dimen/default_text_size" />
+
+    <com.konaire.numerickeyboard.NumericKeyboard
+        android:id="@+id/keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>
