@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NumericKeyboard">
+        <attr name="field" format="reference" />
+        <attr name="fieldMaxLength" format="integer" />
+
+        <attr name="keyHeight" format="dimension" />
+        <attr name="keyTextSize" format="dimension" />
+        <attr name="keyTextColor" format="color" />
+    </declare-styleable>
+</resources>
