@@ -4,6 +4,9 @@ buildscript {
         gradleVersion = '3.0.1'
         kotlinVersion = '1.2.21'
         supportVersion = '27.0.2'
+
+        bintrayVersion = '1.7.3'
+        mavenVersion = '2.0'
     }
 
     repositories {
@@ -14,6 +17,8 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$bintrayVersion"
+        classpath "com.github.dcendents:android-maven-gradle-plugin:$mavenVersion"
     }
 }
 
