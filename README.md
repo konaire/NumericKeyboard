@@ -1,6 +1,6 @@
 # Numeric Keyboard
-[![Bintray](https://img.shields.io/bintray/v/konaire/maven/numeric-keyboard.svg)](https://bintray.com/konaire/maven/numeric-keyboard)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
+[![Bintray](https://api.bintray.com/packages/konaire/maven/numeric-keyboard/images/download.svg)](https://bintray.com/konaire/maven/numeric-keyboard)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/konaire/NumericKeyboard/blob/master/LICENSE.txt)
 
 <img src="img/keyboard-input.gif" alt="Example" width="210"/>
 <details>
@@ -19,7 +19,7 @@ The Gradle dependency is available via [jCenter](https://bintray.com/konaire/mav
 
 ```java
 dependencies {
-	// other dependencies here
+    // other dependencies here
     compile 'com.konaire.numeric-keyboard:numeric-keyboard:1.0.0'
 }
 ```
@@ -27,10 +27,15 @@ dependencies {
 ## Usage
 ### From layout resource
 You can set background, width, margin, etc. from android xml attributes. And there are some more of them:
+
 **app:field** - reference to `EditText` for input
+
 **app:fieldMaxLength** - max length of your `EditText` if it has one
+
 **app:keyHeight** - height of each key in keyboard
+
 **app:keyTextColor** - text color for each key
+
 **app:keyTextSize** - text size for each key
 
 _Note:_ If your `EditText` has **android:maxLength** attribute but you don't provide **app:fieldMaxLength** for keyboard, a `TextWatcher` will be called after max length is reached while inputting.
@@ -43,7 +48,7 @@ In the following example keyboard was initialized from layout.
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-	<EditText
+    <EditText
         android:id="@+id/code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,7 +57,7 @@ In the following example keyboard was initialized from layout.
         android:textSize="@dimen/text_size"
         android:textColor="@android:color/black" />
 
-	<!-- Some other stuff -->
+    <!-- Some other stuff -->
 
     <com.konaire.numerickeyboard.NumericKeyboard
         android:layout_width="match_parent"
@@ -84,4 +89,4 @@ class MainActivity: AppCompatActivity() {
 ```
 
 # License
-The library is distributed under the [MIT LICENSE](https://opensource.org/licenses/MIT).
+The library is distributed under the [MIT LICENSE](https://github.com/konaire/NumericKeyboard/blob/master/LICENSE.txt).
