@@ -26,16 +26,11 @@ dependencies {
 
 ## Usage
 ### From layout resource
-You can set background, width, margin, etc. from android xml attributes. And there are some more of them:
-
-**app:field** - reference to `EditText` for input
-
-**app:fieldMaxLength** - max length of your `EditText` if it has one
-
-**app:keyHeight** - height of each key in keyboard
-
-**app:keyTextColor** - text color for each key
-
+You can set background, width, margin, etc. from android xml attributes. And there are some more of them:  
+**app:field** - reference to `EditText` for input  
+**app:fieldMaxLength** - max length of your `EditText` if it has one  
+**app:keyHeight** - height of each key in keyboard  
+**app:keyTextColor** - text color for each key  
 **app:keyTextSize** - text size for each key
 
 _Note:_ If your `EditText` has **android:maxLength** attribute but you don't provide **app:fieldMaxLength** for keyboard, a `TextWatcher` will be called after max length is reached while inputting.
