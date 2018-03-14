@@ -20,13 +20,14 @@ internal class KeyClickListener(
         val field = this.field ?: return
 
         if (view is IconifiedTextView) {
-            val lastChar = field.text.length - 1
+            val previousChar = field.selectionEnd - 1
 
-            if (lastChar >= 0) {
-                val value = field.text.toString().substring(0, lastChar)
+            if (previousChar >= 0) {
+                var value = field.text.toString()
+                value = "${value.substring(0, previousChar)}${value.substring(previousChar + 1)}"
 
                 field.setText(value)
-                field.setSelection(lastChar)
+                field.setSelection(previousChar)
             }
         } else if (view is TextView) {
             if (maxLength > 0 && field.text.length == maxLength) {
