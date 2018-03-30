@@ -34,11 +34,12 @@ internal class KeyClickListener(
                 return
             }
 
-            val builder = StringBuilder(field.text)
+            val selectionEnd = field.selectionEnd
+            val builder = StringBuilder(field.text.subSequence(0, selectionEnd))
+            builder.append(view.text).append(field.text.subSequence(selectionEnd, field.length()))
 
-            builder.append(view.text)
             field.setText(builder.toString())
-            field.setSelection(field.text.length)
+            field.setSelection(selectionEnd + 1)
         }
     }
 }
