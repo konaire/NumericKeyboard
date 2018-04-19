@@ -30,7 +30,8 @@ internal class KeyClickListener(
                 field.setSelection(previousChar)
             }
         } else if (view is TextView) {
-            if (maxLength > 0 && field.text.length == maxLength) {
+            val textLength = field.text.length
+            if (maxLength > 0 && textLength == maxLength) {
                 return
             }
 
@@ -39,7 +40,12 @@ internal class KeyClickListener(
             builder.append(view.text).append(field.text.subSequence(selectionEnd, field.length()))
 
             field.setText(builder.toString())
-            field.setSelection(selectionEnd + 1)
+
+            if (selectionEnd < textLength) {
+                field.setSelection(selectionEnd + 1)
+            } else if (selectionEnd == textLength) {
+                field.setSelection(field.text.length)
+            }
         }
     }
 }

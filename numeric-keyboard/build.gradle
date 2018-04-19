@@ -13,7 +13,7 @@ android {
         targetSdkVersion 27
 
         versionCode 1
-        versionName "1.0.2"
+        versionName "1.0.3"
     }
 
     buildTypes {
@@ -35,7 +35,7 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 String githubUrl = 'https://github.com/konaire/NumericKeyboard'
 group = 'com.konaire.numeric-keyboard'
-version = '1.0.2'
+version = '1.0.3'
 
 bintray {
     user = properties.getProperty('bintray.user')
