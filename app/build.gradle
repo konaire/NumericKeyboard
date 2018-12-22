@@ -4,14 +4,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "com.konaire.sample"
 
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 28
 
         versionCode 1
         versionName "1.0"
@@ -27,9 +27,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
     implementation "com.android.support:appcompat-v7:$supportVersion"
 
-    compile project(':numeric-keyboard')
+    implementation project(':numeric-keyboard')
 }
