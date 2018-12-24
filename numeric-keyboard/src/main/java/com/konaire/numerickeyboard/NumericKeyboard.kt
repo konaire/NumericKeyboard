@@ -189,7 +189,6 @@ class NumericKeyboard: FrameLayout {
         key8.setOnClickListener(listener)
         key9.setOnClickListener(listener)
         key0.setOnClickListener(listener)
-        keySpecial.setOnClickListener(listener)
 
         keyRemove.setOnClickListener(listener)
         keyRemove.setOnTouchListener { view, event ->
