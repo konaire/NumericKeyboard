@@ -96,12 +96,6 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
-    fun onKeySpecialClick(function: (() -> Unit)) {
-        keySpecialListener = OnClickListener {
-            function.invoke()
-        }
-    }
-
     private fun initAttributes(context: Context, attrs: AttributeSet, defStyleAttr: Int) {
         val attributes = context.theme.obtainStyledAttributes(attrs, R.styleable.NumericKeyboard, defStyleAttr, 0)
         val defaultKeyTextSize = context.resources.getDimensionPixelSize(R.dimen.keyboard_text_size)
@@ -201,13 +195,7 @@ class NumericKeyboard: FrameLayout {
         }
 
         keySpecial.text = keySpecialText
-        if (keySpecialText != "") {
-            keySpecial.isEnabled = true
-        }
-        if (keySpecialListener != null) {
-            keySpecial.setOnClickListener(keySpecialListener)
-        } else {
-            keySpecial.setOnClickListener(listener)
-        }
+        keySpecial.isEnabled = keySpecialText.isNotEmpty()
+        keySpecial.setOnClickListener(keySpecialListener ?: listener)
     }
 }
