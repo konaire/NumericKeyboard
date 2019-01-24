@@ -40,6 +40,10 @@ class NumericKeyboard: FrameLayout {
     }
 
     private var fieldId: Int = 0
+
+    /**
+     * Reference to the [EditText] which will take user input.
+     */
     var field: EditText? = null
         set(value) {
             value?.suppressSoftKeyboard()
@@ -49,6 +53,9 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * maxLength of the bound [EditText]
+     */
     var fieldMaxLength: Int = 0
         set(value) {
             field = value
@@ -57,6 +64,9 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * Height for all keys.
+     */
     var keyHeight: Int = 0
         set(value) {
             field = value
@@ -65,6 +75,9 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * Text size of a key.
+     */
     var keyTextSize: Float = 0F
         set(value) {
             field = value
@@ -73,6 +86,9 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * Text color of a key.
+     */
     var keyTextColor: Int = 0
         set(value) {
             field = value
@@ -81,6 +97,11 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * Right bottom key on the keyboard. By default it is disabled.
+     * If you set a text here, it will be put in the bound [EditText] without any validation.
+     * To change default implementation of the click listener, use [keySpecialListener].
+     */
     var keySpecialValue: String = ""
         set(value) {
             field = value
@@ -89,6 +110,10 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * Custom click listener for the right bottom key.
+     * You can do a validation here or perform any other actions when user taps on the key.
+     */
     var keySpecialListener: OnClickListener? = null
         set(value) {
             field = value
