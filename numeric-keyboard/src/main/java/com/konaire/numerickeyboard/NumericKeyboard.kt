@@ -80,6 +80,22 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    var keySpecialText: String = ""
+        set(value) {
+            field = value
+            if (childCount > 0) {
+                updateView(getChildAt(0))
+            }
+        }
+
+    var keySpecialListener: OnClickListener? = null
+        set(value) {
+            field = value
+            if (childCount > 0) {
+                updateView(getChildAt(0))
+            }
+        }
+
     private fun initAttributes(context: Context, attrs: AttributeSet, defStyleAttr: Int) {
         val attributes = context.theme.obtainStyledAttributes(attrs, R.styleable.NumericKeyboard, defStyleAttr, 0)
         val defaultKeyTextSize = context.resources.getDimensionPixelSize(R.dimen.keyboard_text_size)
@@ -123,6 +139,7 @@ class NumericKeyboard: FrameLayout {
         val key9 = layout.findViewById<TextView>(R.id.key9)
         val key0 = layout.findViewById<TextView>(R.id.key0)
         val keyRemove = layout.findViewById<TextView>(R.id.keyRemove)
+        val keySpecial = layout.findViewById<TextView>(R.id.keySpecial)
         val listener = KeyClickListener(fieldMaxLength, field)
 
         row1.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyHeight)
@@ -141,6 +158,7 @@ class NumericKeyboard: FrameLayout {
         key9.setTextColor(keyTextColor)
         key0.setTextColor(keyTextColor)
         keyRemove.setTextColor(keyTextColor)
+        keySpecial.setTextColor(keyTextColor)
 
         key1.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
         key2.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
@@ -153,6 +171,7 @@ class NumericKeyboard: FrameLayout {
         key9.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
         key0.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
         keyRemove.setTextSize(TypedValue.COMPLEX_UNIT_PX, 0.8F * keyTextSize)
+        keySpecial.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
 
         key1.setOnClickListener(listener)
         key2.setOnClickListener(listener)
@@ -174,5 +193,9 @@ class NumericKeyboard: FrameLayout {
 
             false
         }
+
+        keySpecial.text = keySpecialText
+        keySpecial.isEnabled = keySpecialText.isNotEmpty()
+        keySpecial.setOnClickListener(keySpecialListener ?: listener)
     }
 }
