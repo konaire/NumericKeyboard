@@ -20,7 +20,7 @@ The Gradle dependency is available via [jCenter](https://bintray.com/konaire/mav
 ```java
 dependencies {
     // other dependencies here
-    implementation 'com.konaire.numeric-keyboard:numeric-keyboard:1.0.3'
+    implementation 'com.konaire.numeric-keyboard:numeric-keyboard:1.0.4'
 }
 ```
 

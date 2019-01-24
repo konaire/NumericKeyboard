@@ -9,162 +9,80 @@
 
     <LinearLayout
         android:id="@+id/row1"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/keyboard_row_height"
-        android:orientation="horizontal">
+        style="@style/Keyboard.Row">
 
         <TextView
             android:id="@+id/key1"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="1" />
 
         <TextView
             android:id="@+id/key2"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="2"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="2" />
 
         <TextView
             android:id="@+id/key3"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="3"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="3" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/row2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/keyboard_row_height"
-        android:orientation="horizontal">
+        style="@style/Keyboard.Row">
 
         <TextView
             android:id="@+id/key4"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="4"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="4" />
 
         <TextView
             android:id="@+id/key5"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="5"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="5" />
 
         <TextView
             android:id="@+id/key6"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="6"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="6" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/row3"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/keyboard_row_height"
-        android:orientation="horizontal">
+        style="@style/Keyboard.Row">
 
         <TextView
             android:id="@+id/key7"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="7"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="7" />
 
         <TextView
             android:id="@+id/key8"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="8"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="8" />
 
         <TextView
             android:id="@+id/key9"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="9"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="9" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/row4"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/keyboard_row_height"
-        android:orientation="horizontal">
+        style="@style/Keyboard.Row">
 
         <TextView
             android:id="@+id/keySpecial"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text=""
-            android:enabled="false"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key" />
 
         <TextView
             android:id="@+id/key0"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="0"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="0" />
 
         <com.konaire.numerickeyboard.IconifiedTextView
             android:id="@+id/keyRemove"
-            android:layout_weight="1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="&#xe14a;"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/keyboard_text_size"
-            android:background="?android:attr/selectableItemBackground" />
+            style="@style/Keyboard.Key"
+            android:text="&#xe14a;" />
     </LinearLayout>
 </LinearLayout>

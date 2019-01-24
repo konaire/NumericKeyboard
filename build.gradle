@@ -2,10 +2,10 @@
 buildscript {
     ext {
         gradleVersion = '3.3.0'
-        kotlinVersion = '1.3.11'
-        supportVersion = '27.1.1'
+        kotlinVersion = '1.3.20'
+        supportVersion = '28.0.0'
 
-        bintrayVersion = '1.8.0'
+        bintrayVersion = '1.8.4'
         mavenVersion = '2.1'
     }
 

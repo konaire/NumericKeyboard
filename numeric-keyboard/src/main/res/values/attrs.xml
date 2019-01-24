@@ -7,5 +7,7 @@
         <attr name="keyHeight" format="dimension" />
         <attr name="keyTextSize" format="dimension" />
         <attr name="keyTextColor" format="color" />
+
+        <attr name="keySpecial" format="string" />
     </declare-styleable>
 </resources>
