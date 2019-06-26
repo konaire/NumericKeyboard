@@ -27,7 +27,7 @@ internal class KeyClickListener(
                 value = "${value.substring(0, previousChar)}${value.substring(previousChar + 1)}"
 
                 field.setText(value)
-                field.setSelection(previousChar)
+                field.setSelection(field.text.toString().trim().length)
             }
         } else if (view is TextView) {
             val textLength = field.text.length
