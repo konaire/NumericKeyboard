@@ -10,32 +10,33 @@
 </details>
 
 ## Description
-It's simple numeric keyboard which can't be hidden. Keyboard prevents your `EditText` from being focused, so android keyboard won't be displayed. It supports all features of default keyboard and can be customize in many different ways.
+It's a simple numeric keyboard which user can't hide. This keyboard prevents focusing on your `EditText` and you won't see the default keyboard anymore. It supports main features of the android keyboard and can be customized in many different ways.
 
-Library was written in Kotlin language. So it will be perfectly matched with your new awesome projects :wink:
+Library was written in Kotlin. So it will perfectly match with your new awesome project :wink:
 
 ## Installation
-The Gradle dependency is available via [jCenter](https://bintray.com/konaire/maven/numeric-keyboard). jCenter is the default Maven repository used by Android Studio. The minimum API level supported by this library is API 15.
+The Gradle dependency is available via [jCenter](https://bintray.com/konaire/maven/numeric-keyboard). The minimum API level is 15 (Android 4.0).
 
 ```java
 dependencies {
     // other dependencies here
-    compile 'com.konaire.numeric-keyboard:numeric-keyboard:1.0.3'
+    implementation 'com.konaire.numeric-keyboard:numeric-keyboard:1.0.5'
 }
 ```
 
 ## Usage
 ### From layout resource
-You can set background, width, margin, etc. from android xml attributes. And there are some more of them:  
-**app:field** - reference to `EditText` for input  
-**app:fieldMaxLength** - max length of your `EditText` if it has one  
-**app:keyHeight** - height of each key in keyboard  
-**app:keyTextColor** - text color for each key  
-**app:keyTextSize** - text size for each key
+You can set background, width, margin, etc from android xml attributes:\
+**app:field** - reference to the `EditText` which will take user input\
+**app:fieldMaxLength** - `maxLength` of the bound `EditText`, if it has one\
+**app:keyHeight** - height for all keyboard's keys\
+**app:keyTextColor** - text color of a key\
+**app:keyTextSize** - text size of a key\
+**app:keySpecial** - right bottom key on the keyboard (disabled by default, see details in javadoc)
 
-_Note:_ If your `EditText` has **android:maxLength** attribute but you don't provide **app:fieldMaxLength** for keyboard, a `TextWatcher` will be called after max length is reached while inputting.
+_Note:_ If your `EditText` has **android:maxLength** attribute but you haven't provide **app:fieldMaxLength** for the keyboard, a `TextWatcher` for that `EditText` will be called even when user taps on a key after reaching the max length.
 
-In the following example keyboard was initialized from layout.
+In the following example keyboard was initialized from the layout.
 
 ```xml
 <FrameLayout
@@ -47,25 +48,25 @@ In the following example keyboard was initialized from layout.
         android:id="@+id/code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:hint="@string/hint"
-        android:textSize="@dimen/text_size"
-        android:textColor="@android:color/black" />
+        android:inputType="number"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/text_size" />
 
     <!-- Some other stuff -->
 
     <com.konaire.numerickeyboard.NumericKeyboard
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/gap"
         android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/gap"
         app:field="@+id/code"
         app:keyTextColor="@color/green" />
 </FrameLayout>
 ```
 
 ### From code
-You can set all of custom parameters from code. There is an example:
+Also you can set all custom parameters from the code. There is an example:
 
 ```kotlin
 // other imports

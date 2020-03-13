@@ -40,6 +40,10 @@ class NumericKeyboard: FrameLayout {
     }
 
     private var fieldId: Int = 0
+
+    /**
+     * Reference to the [EditText] which will take user input.
+     */
     var field: EditText? = null
         set(value) {
             value?.suppressSoftKeyboard()
@@ -49,6 +53,9 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * maxLength of the bound [EditText]
+     */
     var fieldMaxLength: Int = 0
         set(value) {
             field = value
@@ -57,6 +64,9 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * Height for all keys.
+     */
     @Suppress("MemberVisibilityCanBePrivate")
     var keyHeight: Int = 0
         set(value) {
@@ -66,6 +76,9 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * Text size of a key.
+     */
     @Suppress("MemberVisibilityCanBePrivate")
     var keyTextSize: Float = 0F
         set(value) {
@@ -75,8 +88,38 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    /**
+     * Text color of a key.
+     */
     @Suppress("MemberVisibilityCanBePrivate")
     var keyTextColor: Int = 0
+        set(value) {
+            field = value
+            if (childCount > 0) {
+                updateView(getChildAt(0))
+            }
+        }
+
+    /**
+     * Right bottom key on the keyboard. By default it is disabled.
+     * If you set a text here, it will be put in the bound [EditText] without any validation.
+     * To change default implementation of the click listener, use [keySpecialListener].
+     */
+    @Suppress("MemberVisibilityCanBePrivate")
+    var keySpecialValue: String = ""
+        set(value) {
+            field = value
+            if (childCount > 0) {
+                updateView(getChildAt(0))
+            }
+        }
+
+    /**
+     * Custom click listener for the right bottom key.
+     * You can do a validation here or perform any other actions when user taps on the key.
+     */
+    @Suppress("MemberVisibilityCanBePrivate")
+    var keySpecialListener: OnClickListener? = null
         set(value) {
             field = value
             if (childCount > 0) {
@@ -95,6 +138,8 @@ class NumericKeyboard: FrameLayout {
         keyHeight = attributes.getDimensionPixelSize(R.styleable.NumericKeyboard_keyHeight, defaultKeyHeight)
         keyTextSize = attributes.getDimensionPixelSize(R.styleable.NumericKeyboard_keyTextSize, defaultKeyTextSize).toFloat()
         keyTextColor = attributes.getColor(R.styleable.NumericKeyboard_keyTextColor, Color.BLACK)
+
+        keySpecialValue = attributes.getString(R.styleable.NumericKeyboard_keySpecial) ?: ""
 
         post { initViews() }
     }
@@ -128,6 +173,7 @@ class NumericKeyboard: FrameLayout {
         val key9 = layout.findViewById<TextView>(R.id.key9)
         val key0 = layout.findViewById<TextView>(R.id.key0)
         val keyRemove = layout.findViewById<TextView>(R.id.keyRemove)
+        val keySpecial = layout.findViewById<TextView>(R.id.keySpecial)
         val listener = KeyClickListener(fieldMaxLength, field)
 
         row1.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyHeight)
@@ -146,6 +192,7 @@ class NumericKeyboard: FrameLayout {
         key9.setTextColor(keyTextColor)
         key0.setTextColor(keyTextColor)
         keyRemove.setTextColor(keyTextColor)
+        keySpecial.setTextColor(keyTextColor)
 
         key1.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
         key2.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
@@ -158,6 +205,7 @@ class NumericKeyboard: FrameLayout {
         key9.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
         key0.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
         keyRemove.setTextSize(TypedValue.COMPLEX_UNIT_PX, 0.8F * keyTextSize)
+        keySpecial.setTextSize(TypedValue.COMPLEX_UNIT_PX, keyTextSize)
 
         key1.setOnClickListener(listener)
         key2.setOnClickListener(listener)
@@ -179,5 +227,9 @@ class NumericKeyboard: FrameLayout {
 
             false
         }
+
+        keySpecial.text = keySpecialValue
+        keySpecial.isEnabled = keySpecialValue.isNotEmpty()
+        keySpecial.setOnClickListener(keySpecialListener ?: listener)
     }
 }

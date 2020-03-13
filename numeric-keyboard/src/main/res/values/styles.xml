@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Keyboard" />
+    
+    <style name="Keyboard.Row">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/keyboard_row_height</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    
+    <style name="Keyboard.Key">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/keyboard_text_size</item>
+    </style>
+</resources>
