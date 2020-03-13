@@ -1,5 +1,6 @@
 package com.konaire.numerickeyboard
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
@@ -56,6 +57,7 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    @Suppress("MemberVisibilityCanBePrivate")
     var keyHeight: Int = 0
         set(value) {
             field = value
@@ -64,6 +66,7 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    @Suppress("MemberVisibilityCanBePrivate")
     var keyTextSize: Float = 0F
         set(value) {
             field = value
@@ -72,6 +75,7 @@ class NumericKeyboard: FrameLayout {
             }
         }
 
+    @Suppress("MemberVisibilityCanBePrivate")
     var keyTextColor: Int = 0
         set(value) {
             field = value
@@ -107,6 +111,7 @@ class NumericKeyboard: FrameLayout {
         addView(layout)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun updateView(layout: View) {
         val row1 = layout.findViewById<View>(R.id.row1)
         val row2 = layout.findViewById<View>(R.id.row2)

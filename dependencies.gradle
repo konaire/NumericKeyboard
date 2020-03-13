@@ -1,0 +1,7 @@
+ext {
+    sharedSdkVersion = 29
+    sharedMinSdkVersion = 15
+    sharedBuildToolsVersion = "29.0.3"
+
+    appcompat = '1.1.0'
+}

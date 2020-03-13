@@ -10,10 +10,11 @@
         android:id="@+id/field"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLength="10"
-        android:inputType="number"
-        android:imeOptions="actionDone"
         android:hint="@string/field_hint"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:maxLength="10"
         android:textColor="@android:color/black"
         android:textSize="@dimen/default_text_size" />
 
