@@ -80,7 +80,7 @@
             style="@style/Keyboard.Key"
             android:text="0" />
 
-        <com.konaire.numerickeyboard.IconifiedTextView
+        <com.konaire.numerickeyboard.view.IconifiedTextView
             android:id="@+id/keyRemove"
             style="@style/Keyboard.Key"
             android:text="&#xe14a;" />

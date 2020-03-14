@@ -18,7 +18,10 @@
         android:maxLength="10"
         android:textColor="@android:color/black"
         android:textSize="@dimen/default_text_size"
-        tools:targetApi="o" />
+        tools:targetApi="o">
+
+        <requestFocus />
+    </EditText>
 
     <com.konaire.numerickeyboard.NumericKeyboard
         android:id="@+id/keyboard"

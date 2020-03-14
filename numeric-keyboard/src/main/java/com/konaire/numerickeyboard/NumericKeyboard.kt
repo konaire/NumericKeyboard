@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.konaire.numerickeyboard.listener.KeyClickListener
 
 import com.konaire.numerickeyboard.util.*
 
@@ -19,20 +20,20 @@ import com.konaire.numerickeyboard.util.*
  * Created by Evgeny Eliseyev on 10/02/2018.
  */
 
-class NumericKeyboard: FrameLayout {
-    constructor(context: Context): super(context)
+class NumericKeyboard : FrameLayout {
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet): super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         initAttributes(context, attrs, -1)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int): super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         initAttributes(context, attrs, defStyleAttr)
     }
 
-    private val removeChar: ViewRunnable = object: ViewRunnable() {
+    private val removeChar: ViewRunnable = object : ViewRunnable() {
         override fun run() {
-            val listener = KeyClickListener(fieldMaxLength, field)
+            val listener = KeyClickListener(field, fieldMaxLength)
 
             listener.onClick(view)
             handler.postDelayed(this, 50)
@@ -174,7 +175,7 @@ class NumericKeyboard: FrameLayout {
         val key0 = layout.findViewById<TextView>(R.id.key0)
         val keyRemove = layout.findViewById<TextView>(R.id.keyRemove)
         val keySpecial = layout.findViewById<TextView>(R.id.keySpecial)
-        val listener = KeyClickListener(fieldMaxLength, field)
+        val listener = KeyClickListener(field, fieldMaxLength)
 
         row1.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyHeight)
         row2.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, keyHeight)
@@ -221,7 +222,7 @@ class NumericKeyboard: FrameLayout {
         keyRemove.setOnClickListener(listener)
         keyRemove.setOnTouchListener { view, event ->
             when (event.action) {
-                MotionEvent.ACTION_DOWN -> handler.postDelayed(removeChar.setView(view), 750)
+                MotionEvent.ACTION_DOWN -> handler.postDelayed(removeChar.also { it.view = view }, 750)
                 MotionEvent.ACTION_UP -> handler.removeCallbacks(removeChar)
             }
 
