@@ -37,7 +37,7 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 String githubUrl = 'https://github.com/konaire/NumericKeyboard'
 group = 'com.konaire.numeric-keyboard'
-version = '1.0.5'
+version = '1.1.0'
 
 bintray {
     user = properties.getProperty('bintray.user')
