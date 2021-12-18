@@ -227,9 +227,7 @@ class NumericKeyboard : FrameLayout {
                     750
                 )
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL ->
-                    handler.removeCallbacks(
-                        removeChar
-                    )
+                    handler.removeCallbacks(removeChar)
             }
             false
         }
