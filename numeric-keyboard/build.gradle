@@ -10,9 +10,6 @@ android {
     defaultConfig {
         minSdkVersion project.ext.sharedMinSdkVersion
         targetSdkVersion project.ext.sharedSdkVersion
-
-        versionCode 110
-        versionName "1.1.0"
     }
 
     buildTypes {
@@ -21,11 +18,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     implementation "androidx.appcompat:appcompat:$appcompat"
 }

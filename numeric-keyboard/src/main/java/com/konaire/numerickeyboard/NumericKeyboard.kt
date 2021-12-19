@@ -16,10 +16,6 @@ import com.konaire.numerickeyboard.listener.KeyClickListener
 
 import com.konaire.numerickeyboard.util.*
 
-/**
- * Created by Evgeny Eliseyev on 10/02/2018.
- */
-
 class NumericKeyboard : FrameLayout {
     constructor(context: Context) : super(context)
 
