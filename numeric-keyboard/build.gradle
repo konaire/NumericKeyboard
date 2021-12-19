@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+apply plugin: 'com.vanniktech.maven.publish'
+
 apply from: '../dependencies.gradle'
 
 android {
@@ -10,6 +12,9 @@ android {
     defaultConfig {
         minSdkVersion project.ext.sharedMinSdkVersion
         targetSdkVersion project.ext.sharedSdkVersion
+
+        versionCode 120
+        versionName "1.2.0"
     }
 
     buildTypes {
@@ -34,28 +39,4 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     implementation "androidx.appcompat:appcompat:$appcompat"
-}
-
-tasks.withType(Javadoc).all {
-    enabled = false
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    archiveClassifier.set('sources')
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier.set('javadoc')
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
 }

@@ -1,5 +1,5 @@
 # Numeric Keyboard
-[![Bintray](https://api.bintray.com/packages/konaire/maven/numeric-keyboard/images/download.svg)](https://bintray.com/konaire/maven/numeric-keyboard)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.konaire.numeric-keyboard/numeric-keyboard/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.konaire.numeric-keyboard/numeric-keyboard)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/konaire/NumericKeyboard/blob/master/LICENSE.txt)
 
 <img src="img/keyboard-input.gif" alt="Example" width="210"/>
@@ -15,12 +15,12 @@ It's a simple numeric keyboard which user can't hide. This keyboard prevents foc
 Library was written in Kotlin. So it will perfectly match with your new awesome project :wink:
 
 ## Installation
-The Gradle dependency is available via [jCenter](https://bintray.com/konaire/maven/numeric-keyboard). The minimum API level is 15 (Android 4.0).
+The Gradle dependency is available via [Maven Central](https://search.maven.org/search?q=g:com.konaire.numeric-keyboard%20AND%20a:numeric-keyboard). The minimum API level is 15 (Android 4.0).
 
 ```java
 dependencies {
     // other dependencies here
-    implementation 'com.konaire.numeric-keyboard:numeric-keyboard:1.1.0'
+    implementation 'com.konaire.numeric-keyboard:numeric-keyboard:1.2.0'
 }
 ```
 

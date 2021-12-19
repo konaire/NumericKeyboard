@@ -1,8 +1,8 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
         gradleVersion = '7.0.4'
         kotlinVersion = '1.6.10' // https://kotlinlang.org/docs/releases.html#release-details
+        publishVersion = '0.18.0' // https://github.com/vanniktech/gradle-maven-publish-plugin/releases
     }
 
     repositories {
@@ -13,13 +13,22 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$gradleVersion"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "com.vanniktech:gradle-maven-publish-plugin:$publishVersion"
     }
 }
+
+apply from: 'credentials.gradle'
 
 allprojects {
     repositories {
         mavenCentral()
         google()
+    }
+
+    plugins.withId("com.vanniktech.maven.publish") {
+        mavenPublish {
+            sonatypeHost = "S01"
+        }
     }
 }
 
