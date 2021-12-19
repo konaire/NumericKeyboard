@@ -222,10 +222,13 @@ class NumericKeyboard : FrameLayout {
         keyRemove.setOnClickListener(listener)
         keyRemove.setOnTouchListener { view, event ->
             when (event.action) {
-                MotionEvent.ACTION_DOWN -> handler.postDelayed(removeChar.also { it.view = view }, 750)
-                MotionEvent.ACTION_UP -> handler.removeCallbacks(removeChar)
+                MotionEvent.ACTION_DOWN -> handler.postDelayed(
+                    removeChar.also { it.view = view },
+                    750
+                )
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL ->
+                    handler.removeCallbacks(removeChar)
             }
-
             false
         }
 
