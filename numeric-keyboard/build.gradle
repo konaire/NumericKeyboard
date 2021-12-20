@@ -12,9 +12,6 @@ android {
     defaultConfig {
         minSdkVersion project.ext.sharedMinSdkVersion
         targetSdkVersion project.ext.sharedSdkVersion
-
-        versionCode 120
-        versionName "1.2.0"
     }
 
     buildTypes {
