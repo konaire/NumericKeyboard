@@ -1,8 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.vanniktech.maven.publish'
 
 apply from: '../dependencies.gradle'
 
@@ -13,9 +12,6 @@ android {
     defaultConfig {
         minSdkVersion project.ext.sharedMinSdkVersion
         targetSdkVersion project.ext.sharedSdkVersion
-
-        versionCode 110
-        versionName "1.1.0"
     }
 
     buildTypes {
@@ -24,94 +20,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
     implementation "androidx.appcompat:appcompat:$appcompat"
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-String githubUrl = 'https://github.com/konaire/NumericKeyboard'
-group = 'com.konaire.numeric-keyboard'
-version = '1.1.0'
-
-bintray {
-    user = properties.getProperty('bintray.user')
-    key = properties.getProperty('bintray.apikey')
-
-    configurations = ['archives']
-    pkg {
-        repo = 'maven'
-        name = 'numeric-keyboard'
-        desc = "Simple numeric keyboard which can't be hidden."
-
-        websiteUrl = githubUrl
-        issueTrackerUrl = "$githubUrl/issues"
-        vcsUrl = "$githubUrl" + ".git"
-
-        licenses = ['MIT']
-        labels = ['android', 'keyboard', 'kotlin']
-        publicDownloadNumbers = false
-    }
-}
-
-install {
-    repositories.mavenInstaller {
-        pom {
-            project {
-                packaging 'aar'
-                name 'Numeric Keyboard'
-                url githubUrl
-
-                licenses {
-                    license {
-                        name 'The MIT License'
-                        url 'https://raw.githubusercontent.com/konaire/NumericKeyboard/master/LICENSE.txt'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'konaire'
-                        name 'Evgeny Eliseyev'
-                        email 'eugvelis@gmail.com'
-                    }
-                }
-
-                scm {
-                    connection "$githubUrl" + ".git"
-                    developerConnection "$githubUrl" + ".git"
-                    url githubUrl
-                }
-            }
-        }
-    }
-}
-
-tasks.withType(Javadoc).all {
-    enabled = false
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    archiveClassifier.set('sources')
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier.set('javadoc')
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
 }

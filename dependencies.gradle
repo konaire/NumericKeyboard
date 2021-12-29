@@ -1,7 +1,7 @@
 ext {
-    sharedSdkVersion = 29
+    sharedSdkVersion = 31
     sharedMinSdkVersion = 15
-    sharedBuildToolsVersion = "29.0.3"
+    sharedBuildToolsVersion = "31.0.0"
 
-    appcompat = '1.1.0'
+    appcompat = '1.4.0' // https://developer.android.com/jetpack/androidx/releases/appcompat
 }

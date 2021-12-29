@@ -3,10 +3,6 @@ package com.konaire.numerickeyboard.util
 import android.os.Build
 import android.widget.EditText
 
-/**
- * Created by Evgeny Eliseyev on 11/02/2018.
- */
-
 fun EditText.suppressSoftKeyboard() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
         showSoftInputOnFocus = false

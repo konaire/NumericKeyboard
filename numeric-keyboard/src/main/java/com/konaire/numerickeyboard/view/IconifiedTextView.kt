@@ -6,10 +6,6 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.widget.TextView
 
-/**
- * Created by Evgeny Eliseyev on 11/02/2018.
- */
-
 @SuppressLint("AppCompatCustomView")
 internal class IconifiedTextView : TextView {
     constructor(context: Context) : super(context)
